@@ -3,6 +3,7 @@ const productos = [ // me crea un array con todos los productos
     id: 1,
     nombre: "Top Negro",
     precio: "$45.000",
+    categoria: "blusas",
     imagen: "top negro.avif",
     descripcion: "Tela fresca, perfecta para ocasiones casuales o formales."
   },
@@ -10,6 +11,7 @@ const productos = [ // me crea un array con todos los productos
     id: 2,
     nombre: "Jean Wide Leg",
     precio: "$75.000",
+    categoria: "pantalones",
     imagen: "jean wide legs.avif",
     descripcion: "Estilo moderno, cómodo y versátil para cualquier ocasión."
   },
@@ -17,6 +19,7 @@ const productos = [ // me crea un array con todos los productos
     id: 3,
     nombre: "Body Negro",
     precio: "55.000",
+    categoria: "bodys",
     imagen: "body negro.avif",
     descripcion: "Ideal para resaltar tu figura"
   },
@@ -24,6 +27,7 @@ const productos = [ // me crea un array con todos los productos
     id: 4,
     nombre: "Corset Rojo",
     precio: "55.000",
+    categoria: "blusas",
     imagen: "gallery 1.avif",
     descripcion: "Ideal para resaltar tu figura"
   },
@@ -31,6 +35,7 @@ const productos = [ // me crea un array con todos los productos
     id:5 ,
     nombre: "Camisa beisbolera",
     precio: "65.000",
+    categoria: "blusas",
     imagen: "gallery 2.avif",
     descripcion: "Oversized y cómoda para un estilo casual"
   },
@@ -38,6 +43,7 @@ const productos = [ // me crea un array con todos los productos
     id: 6,
     nombre: "Body Negro manga larga",
     precio: "60.000",
+    categoria: "bodys",
     imagen: "gallery 3.avif",
     descripcion: "Ideal para resaltar tu figura"
   },
@@ -45,6 +51,7 @@ const productos = [ // me crea un array con todos los productos
     id: 7,
     nombre: "Conjunto deportivo rosa",
     precio: "110.000",
+    categoria: "deportivos",
     imagen: "gallery 4.avif",
     descripcion: "Ideal para actividades físicas y estilo casual"
   },
@@ -52,6 +59,7 @@ const productos = [ // me crea un array con todos los productos
     id: 8,
     nombre: "Pantalon negro",
     precio: "80.000",
+    categoria: "pantalones",
     imagen: "gallery 5.avif",
     descripcion: "estilo wide leg"
   },
@@ -59,6 +67,7 @@ const productos = [ // me crea un array con todos los productos
     id: 9,
     nombre: "Pantalon con estrellas relieve",
     precio: "100.000",
+    categoria: "pantalones",
     imagen: "gallery 6.avif",
     descripcion: "Ideal para actividades físicas y estilo casual"
   },
@@ -66,6 +75,7 @@ const productos = [ // me crea un array con todos los productos
     id: 10,
     nombre: "Camiseta Negra Ajustada",
     precio: "40.000",
+    categoria: "blusas",
     imagen: "gallery 7.avif",
     descripcion: "Ideal para un estilo casual y comodidad"
   },
@@ -73,11 +83,14 @@ const productos = [ // me crea un array con todos los productos
     id: 11,
     nombre: "Blusa blanca",
     precio: "55.000",
+    categoria: "blusas",
     imagen: "gallery 8.avif",
     descripcion: "Ideal para verano y un estilo fresco"
   }
 
 ];
+
+window.productos = productos;
 
 // obtener ID de la URL
 const params = new URLSearchParams(window.location.search); //obtiene el id desde el url
