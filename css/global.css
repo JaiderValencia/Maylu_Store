@@ -1,0 +1,225 @@
+:root {
+  /* Colores - MAYLU store */
+  --color-primary: #048399;
+  --color-primary-light: #0aa6c0;
+  --color-secondary: #e6c76e;
+  --color-secondary-dark: #b8962e;
+  --color-accent: #fdf8f3;
+  --color-gold: #d4af37;
+  --color-softBeige: #f7f3ef;
+
+  --text-main: #2c2c2c;
+  --text-light: #555555;
+  --text-white: #ffffff;
+
+  --bg-light: #ffffff;
+  --bg-warm: #faf7f4;
+  --bg-dark: #111111;
+  
+
+  --border-color: rgba(74, 59, 50, 0.1);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* Fuentes */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+
+  /* Spacing */
+  --spacing-section: 64px;
+  --spacing-section-desktop: 96px;
+}
+
+/*.bg-gray { cambiar el color del fondo negro con el color que se ponga aqui y la variable se cambia arriba
+    background-color: var(--bg-indefinido);
+}*/
+/* ================================
+           RESETEAR ESTILOS
+================================ */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+/* se usa el var para llamar a un parametro ya utilizado en css..por ejemplo 
+el font-body ya lo tenemos predeterminado en el root */
+body{
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+/*img{
+    max-width: 100px;
+    display: block;
+    height: auto;
+}*/
+
+/* enlaces */
+a{
+    text-decoration: none;
+    color: inherit;
+    transition: all .3s ease;
+}
+
+/* listas */
+ul{
+    list-style: none;
+}
+
+/* ================================
+           UTILIDADES
+================================ */
+
+/* funciones cortas que usamos muchas veces*/
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.section{ /* responsive */
+    padding: var(--spacing-section-desktop) 0; /* aplique esta variable arriba y abajo y derecha e izquierda quede en 0 */
+   @media (max-width: 992px) { /* pantallas menores o iguales 992px se le aplica este padding..a pantallas mayores se le aplica el padding de arriba */
+    padding: var(--spacing-section) 0;
+   }
+}
+
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin-inline: auto; /* centrar contenido */
+    padding: 0 16px;
+}
+
+/* ================================
+           COMPONENTES
+================================ */
+.section-badge{
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ================================
+           BOTONES
+================================ */
+
+.btn{
+    display: inline-block;
+    padding: 10px 32px;
+    border-radius: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.3 ease;
+}
+
+.btn-primary{
+    background-color: var(--color-primary);
+    color: var(--text-white);
+    border-color: var(--color-primary);
+
+    &:hover{ /* cambia el estilo de un elemento cuando el cursor esta encima de el */
+        background-color: #fff;
+        color: var(--color-primary);
+    }
+}
+
+.btn-secundary{
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    
+    &:hover{
+        background-color: #fff;
+        color: var(--color-primary);
+    }
+}
+
+.btn-gold{
+    background-color: #fff;
+    color: var(--text-white);
+
+    &:hover{
+        background-color: var(--color-secondary-dark);
+    }
+}
+
+/* ================================
+           TYPOGRAPHIA
+================================ */
+
+.section-tittle{
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 48px;
+    margin-top: 8px;
+    position: relative;
+    color: var(--color-primary);
+
+    &::after{
+        content: '';
+        display: block;
+        width: 60px;
+        height: 2px;
+        background-color: var(--color-gold);
+        margin: 16px auto 0;
+    }
+
+    @media (max-width:778px) {
+        font-size: 36px;
+    }
+}
+
+.lead{
+    font-size: 18px;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* ================================
+           BACKGROUNDS
+================================ */
+
+.bg-warm{
+    background-color: var(--bg-warm);
+}
+
+.bg-dark{
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+
+    h1,
+    h2,
+    h3{
+        color: var(--color-accent);
+    }
+}

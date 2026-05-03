@@ -1,0 +1,103 @@
+/* ================================
+            FOOTER
+================================ */
+.site-footer {
+    background: var(--bg-dark);
+    color: var(--text-white);
+    padding: 60px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.footer-logo img {
+    width: 120px; 
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer-col h4 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    color: var(--color-gold);
+}
+
+.footer-col p {
+    font-size: 15px;
+    font-style: italic;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* ================================
+            URL
+================================ */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+
+
+    li {
+    margin-bottom: 10px;
+    }
+
+    a {
+    text-decoration: none;
+    color: #ccc;
+    transition: 0.3s;
+    }
+
+    a:hover {
+    color: var(--color-gold);
+    }
+}
+/* ================================
+            ICONS
+================================ */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    padding-left: 15px;
+
+    a {
+    font-size: 30px;
+    color: #ccc;
+    transition: 0.3s;
+    }
+
+    a:hover {
+    color: var(--color-gold);
+    }
+}
+
+/* bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid var(--color-secondary-dark);
+    padding-top: 15px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* ================================
+           RESPONSIVE SECTION
+================================ */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
