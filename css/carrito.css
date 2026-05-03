@@ -1,0 +1,106 @@
+.cart-section {
+    padding: 60px 20px;
+}
+
+.cart-section h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.cart-subtitle {
+    font-size: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.cart-empty {
+    font-size: 18px;
+    color: var(--text-secondary);
+    padding: 20px 0;
+}
+
+.cart-table-wrapper {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.cart-table thead th {
+    text-align: left;
+    padding: 14px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.cart-table tbody td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #eef0f4;
+}
+
+.cart-remove {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: #e53935;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.cart-remove:hover {
+    background: #c62828;
+    transform: scale(1.08) rotate(6deg);
+    box-shadow: 0 10px 18px rgba(198, 40, 40, 0.25);
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+@media (max-width: 720px) {
+    .cart-section h2 {
+        font-size: 36px;
+    }
+
+    .cart-table {
+        font-size: 16px;
+    }
+
+    .cart-table thead {
+        display: none;
+    }
+
+    .cart-table tbody tr {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 12px 0;
+        border-bottom: 1px solid #eef0f4;
+    }
+
+    .cart-table tbody td {
+        border: none;
+        padding: 4px 0;
+    }
+
+    .cart-table tbody td::before {
+        content: attr(data-label) ": ";
+        font-weight: 600;
+        color: var(--text-secondary);
+    }
+}

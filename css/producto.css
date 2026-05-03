@@ -61,3 +61,46 @@
     color: white;
     border-color: var(--color-primary);
 }
+
+.cantidad {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.cantidad label {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.cantidad input {
+    width: 120px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+#agregarCarrito {
+    margin-top: 10px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-feedback {
+    margin-top: 12px;
+    min-height: 20px;
+    font-size: 16px;
+}
+
+.cart-feedback.error {
+    color: #b42318;
+}
+
+.cart-feedback.success {
+    color: #067647;
+}
