@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descripcion | Maylu Store</title>
     <link rel="icon" type="image/png" href="images/maylu logo sin fondo.png">
-        <!--FONTS-->
+    <!--FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-<!--CDN FONTAWE data-->
-<link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <!--CDN FONTAWE data-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--CSS-->
     <!--llamamos los css de la carpeta..como html vienen en cascda si importa el orden en que pongamos los link-->
-    <link rel="stylesheet" href="css/global.css"/>
-    <link rel="stylesheet" href="css/header.css"/>
-    <link rel="stylesheet" href="css/tienda.css"/>
-    <link rel="stylesheet" href="css/producto.css"/>
-    <link rel="stylesheet" href="css/home.css"/>
-    <link rel="stylesheet" href="css/footer.css"/>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/tienda.css" />
+    <link rel="stylesheet" href="css/producto.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 </head>
+
 <body>
     <header class="site-header">
         <!--se crea un contenedor con el logo y con un enlace directo a la pagina principal-->
         <div class="container">
-            <a href="index.html" class="logo" aria-label="Maylu Store -inicio"> <!--el aria label sirve para agregar una descripcion a un elemento...pero no es visible-->
-                <img src="images/maylu logo sin fondo.png" alt="Maylu Store logo"/>
-                
+            <a href="index.html" class="logo" aria-label="Maylu Store -inicio">
+                <!--el aria label sirve para agregar una descripcion a un elemento...pero no es visible-->
+                <img src="images/maylu logo sin fondo.png" alt="Maylu Store logo" />
+
             </a>
             <button class="btn-toggle" aria-label="abrir menu">
                 <i class="fa-solid fa-bars"></i> <!--esto sale del data y es el icono de tres rayas para el menu-->
@@ -54,7 +55,7 @@
     <!--Menu responsive para mobile-->
     <div class="menu-responsive" aria-label="Menu Mobile">
         <ul>
-            <li><a href="index.html">Inicio</a></li> 
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="tienda.html">Tienda</a></li>
             <li><a href="tendencias.html">Tendencias</a></li>
             <li><a href="contact.html">Contacto</a></li>
@@ -64,86 +65,87 @@
     </div>
 
     <main>
-    <!-- CONTENIDO DEL PRODUCTO -->
-<section class="producto-detalle">
-    <!-- IMAGEN -->
-    <div class="producto-img">
-        <img id="imagenProducto" src="" alt="">
-    </div>
+        <!-- CONTENIDO DEL PRODUCTO -->
+        <section class="producto-detalle">
+            <!-- IMAGEN -->
+            <div class="producto-img">
+                <img id="imagenProducto" src="" alt="">
+            </div>
 
-    <!-- INFORMACIÓN -->
-    <div class="producto-info">
-        <h2 id="nombreProducto"></h2>
+            <!-- INFORMACIÓN -->
+            <div class="producto-info">
+                <h2 id="nombreProducto"></h2>
+                <p id="descripcionProducto"></p>
+                <span id="precioProducto" class="precio"></span>
 
-        <span id="precioProducto" class="precio"></span>
+                <h4>Tallas</h4>
+                <div class="tallas">
+                    <button>Talla S</button>
+                    <button>Talla M</button>
+                    <button>Talla L</button>
+                </div>
+                <div class="cantidad">
+                    <label for="cantidadProducto">Cantidad</label>
+                    <input id="cantidadProducto" type="number" min="1" step="1" value="1" required>
+                </div>
+                <button id="agregarCarrito" class="btn btn-primary" type="button">Agregar al carrito</button>
+                <p id="cartFeedback" class="cart-feedback" role="status" aria-live="polite"></p>
 
-        <h4>Tallas</h4>
-        <div class="tallas">
-            <button>Talla S</button>
-            <button>Talla M</button>
-            <button>Talla L</button>
-        </div>
-        <div class="cantidad">
-            <label for="cantidadProducto">Cantidad</label>
-            <input id="cantidadProducto" type="number" min="1" step="1" value="1" required>
-        </div>
-        <button id="agregarCarrito" class="btn btn-primary" type="button">Agregar al carrito</button>
-        <p id="cartFeedback" class="cart-feedback" role="status" aria-live="polite"></p>
-        <p id="descripcionProducto"></p>
-        </div>
-                </section>
+            </div>
+        </section>
 
     </main>
 
     <footer class="site-footer">
-    <div class="container footer-grid">
+        <div class="container footer-grid">
 
-        <!-- LOGO y DESCRIPCIÓN -->
-        <div class="footer-col">
-            <div class="footer-logo">
-    <img src="images/maylu logo sin fondo.png" alt="Maylu Store logo">
-</div>
-            <p>Moda femenina diseñada para resaltar tu esencia. Estilo, elegancia y autenticidad en cada prenda.</p>
-        </div>
-
-        <!-- ENLACES -->
-        <div class="footer-col">
-            <h4>Enlaces</h4>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="tienda.html">Tienda</a></li>
-                <li><a href="tendencias.html">Tendencias</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-            </ul>
-        </div>
-
-        <!-- CONTACTO -->
-        <div class="footer-col">
-            <h4>Contacto</h4>
-            <p><i class="fa-brands fa-whatsapp"></i> +57 319 7279263</p>
-            <p><i class="fa-brands fa-instagram"></i> @maylu_store_</p>
-        </div>
-
-        <!-- REDES -->
-        <div class="footer-col">
-            <h4>Síguenos</h4>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/maylu_store_/" target="_blank">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/573001112233" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
+            <!-- LOGO y DESCRIPCIÓN -->
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="images/maylu logo sin fondo.png" alt="Maylu Store logo">
+                </div>
+                <p>Moda femenina diseñada para resaltar tu esencia. Estilo, elegancia y autenticidad en cada prenda.</p>
             </div>
+
+            <!-- ENLACES -->
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="tendencias.html">Tendencias</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTACTO -->
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fa-brands fa-whatsapp"></i> +57 319 7279263</p>
+                <p><i class="fa-brands fa-instagram"></i> @maylu_store_</p>
+            </div>
+
+            <!-- REDES -->
+            <div class="footer-col">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/maylu_store_/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/573001112233" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
 
-    </div>
-
-    <!-- COPYRIGHT -->
-    <div class="footer-bottom">
-        <p>© 2026 Maylu Store. Todos los derechos reservados.</p>
-    </div>
-</footer>
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+            <p>© 2026 Maylu Store. Todos los derechos reservados.</p>
+        </div>
+    </footer>
     <script src="js/product.js"></script>
 </body>
+
 </html>
