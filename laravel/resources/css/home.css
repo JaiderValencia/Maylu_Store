@@ -1,0 +1,316 @@
+/* ================================
+           HERO SECTION
+================================ */
+
+.hero-section{
+    position: relative;
+    height: 80dvh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/oufit.jpg'); /* asi se llama una imagen en css */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.hero-content{
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+
+    .badge{
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    }
+
+    h1{
+        font-size: 96px;
+        color: #fff;
+        font-weight: 500;
+        margin-bottom: 32px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        line-height: 1.25;
+
+        @media (max-width: 768px) {
+            font-size: 48px;
+        }
+    }
+
+    .lead{
+        /* en el archivo global ya esta escrito el lead pero podemos maximizar o sobreescribir
+        ya que se ejecuta en cascada y el home esta antes del global por tanto el home gana*/
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 20px;
+        margin-bottom: 48px;
+        max-width: 672px;
+        margin-inline: auto;
+        line-height: 1.625;
+        font-weight: 300;
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+        }
+    }
+
+    .hero-buttons{
+        /* la animacion de estos botones se encuentra en el global */
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* ================================
+           INTRO SECTION
+================================ */
+
+.intro-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    align-items: center;
+
+    .intro-image{
+        background-color: #eee;
+        height: 400px;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+    }
+    
+
+    .intro-text{
+        .features-list{
+            margin-top: 32px;
+            display: grid;
+            gap: 16px;
+
+            li{
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                font-weight: 600;
+                color: var(--color-primary-light);
+
+                i{
+                    color: var(--color-secondary);
+                }
+            }
+        }
+    }
+    @media (max-width:768px) {
+        grid-template-columns: 1fr;
+        
+    }
+}
+
+/* ================================
+           PROCESS SECTION
+================================ */
+
+
+.process-section{
+    padding: 30px 0;
+    border-top: 4px solid var(--color-gold);
+    border-bottom: 4px solid var(--color-gold);
+
+    .process-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    text-align: center;
+    
+    
+
+        .process-card{
+        margin-block: 32px;
+
+        &.hover{
+            .icon-container{
+                background-color: #c19a6b20;
+            }
+        }
+            .icon-container{
+            width: 96px;
+            height: 96px;
+            margin-inline: auto;
+            background-color: #ffffff05;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            transition: all 0.5s ease;
+
+                i{
+                    font-size: 36px;
+                    color: var(--color-gold);
+                }
+            }
+
+            h3{
+                font-size: 24px;
+                margin-top: 12px;
+                color: var(--color-primary);
+            }
+            p{
+                padding-inline: 16px;
+                line-height: 1.625;
+                color: #999;
+            }
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+/* ================================
+           FEATURE MENU SECTION
+================================ */
+
+.feature-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+
+    .feature-item{
+        background: #fff;
+        padding: 40px;
+        text-align: center;
+        box-shadow: var(--shadow-xl);
+        transition: transform 0.5s ease;
+        border-top: 4px solid var(--color-gold);
+
+        .img-container{
+            margin-bottom: 32px;
+            border-radius: 4px;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+                height: px;
+                object-fit: cover;
+                /* efecto para que la imagen este medio grisasea y luego vuelva al coolor original */
+                filter: grayscale(50%);
+                transition: all 0.5s ease;
+            }
+        }
+
+        &:hover{
+            transform: translateY(-8px);/* la targeta se mueva un poco hacia arriba */
+
+            .img-container{
+                img{
+                    filter: grayscale(0%);/* hace que el efecto grisaseo de arriba desaparezca */
+                }
+            }
+        }
+
+        h3{
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        p{
+            font-size: 14px;
+            margin-bottom: 24px;
+            line-height: 1.625;
+            color: #6a7282;
+        }
+
+        span{
+            color: var(--color-gold);
+            font-weight: 700;
+        }
+    }
+
+    @media (max-width:768px) {
+        grid-template-columns: 1fr;
+        
+    }
+}
+
+.spacing{ /* es para que el boton de ver menu completo quede de la parte de arriba separado de las tarjetas */
+    margin-top: 36px;
+background-color: var(--color-secondary);
+}
+
+/* ================================
+           GALLERY SECTION
+================================ */
+
+.gallery-section{
+    .gallery-header{
+        margin-bottom: 80px;
+    }
+
+
+    .gallery-grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+        gap: 16px;
+    
+
+    .space-y-4{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        }
+
+        .pt-8{
+            padding-top: 32px;
+        }
+
+        img{
+            width: 100%;
+            object-fit: cover;
+            transition: all 0.7s ease;
+
+            &:hover{
+                transform: scale(1.05);
+            }
+        }
+
+        .img-small{
+            height: 256px;
+        }
+
+        img-large{
+            height: 384px;
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}

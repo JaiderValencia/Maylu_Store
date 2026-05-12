@@ -5,7 +5,26 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: [
+                'resources/css/app.css',
+                'resources/css/global.css',
+                'resources/css/header.css',
+                'resources/css/footer.css',
+                'resources/css/home.css',
+                'resources/css/about.css',
+                'resources/css/contact.css',
+                'resources/css/login.css',
+                'resources/css/carrito.css',
+                'resources/css/producto.css',
+                'resources/css/tienda.css',
+                'resources/css/tendencias.css',
+                'resources/js/app.js',
+                'resources/js/partials.js',
+                'resources/js/cart.js',
+                'resources/js/login.js',
+                'resources/js/product.js',
+                'resources/js/tienda.js',
+            ],
             refresh: true,
         }),
         tailwindcss(),

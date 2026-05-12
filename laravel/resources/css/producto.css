@@ -1,0 +1,106 @@
+.producto-detalle {
+    display: flex;
+    gap: 40px;
+    padding: 60px;
+    flex-wrap: wrap;
+}
+
+.producto-img img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.producto-info {
+    max-width: 600px;
+
+    h2{
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+    h4{
+        font-size: 45px;
+        color: var(--color-primary);
+        margin-bottom: 20px;
+    }
+    p{
+        padding-top: 50px;
+        font-size: 25px;
+        font-style: italic;
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+    }
+}
+.precio {
+    display: block;
+    margin: 15px 0;
+    font-size: 50px;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+.tallas button {
+    margin: 5px;
+    padding: 10px 18px;
+    border: 1px solid #ccc;
+    border-radius: 999px; 
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* hover */
+.tallas button:hover {
+    background-color: var(--color-primary-light);
+    color: #fff;
+    border-color: var(--color-primary-light);
+}
+
+/* estado seleccionado */
+.tallas button.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.cantidad {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.cantidad label {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.cantidad input {
+    width: 120px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+#agregarCarrito {
+    margin-top: 10px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-feedback {
+    margin-top: 12px;
+    min-height: 20px;
+    font-size: 16px;
+}
+
+.cart-feedback.error {
+    color: #b42318;
+}
+
+.cart-feedback.success {
+    color: #067647;
+}

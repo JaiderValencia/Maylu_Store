@@ -1,0 +1,93 @@
+/* ================================
+           TITLE SECTION
+ *=============================== */
+.tendencia-header {
+    width: 100%;
+    background: #fff; 
+    border-bottom: 4px solid var(--color-primary-light);
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 25px;
+
+    h2 {
+    color: var(--color-primary);
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+
+}
+
+}
+
+/* ================================
+           PRODUCTS SECTION
+================================ */
+.products-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-left: 75px;
+    margin-right: 75px;
+
+    .feature-item{
+        background: #fff;
+        padding: 40px;
+        text-align: center;
+        box-shadow: var(--shadow-xl);
+        transition: transform 0.5s ease;
+        border-top: 4px solid var(--color-gold);
+
+        .img-container{
+            margin-bottom: 32px;
+            border-radius: 4px;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+                height: 500px;
+                object-fit: cover;
+                /* efecto para que la imagen este medio grisasea y luego vuelva al coolor original */
+                filter: grayscale(50%);
+                transition: all 0.5s ease;
+
+            }
+        }
+
+        &:hover{
+            transform: translateY(-8px);/* la targeta se mueva un poco hacia arriba */
+
+            .img-container{
+                img{
+                    filter: grayscale(0%);/* hace que el efecto grisaseo de arriba desaparezca */
+                }
+            }
+        }
+
+        h3{
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        p{
+            font-size: 14px;
+            margin-bottom: 24px;
+            line-height: 1.625;
+            color: #6a7282;
+        }
+
+        span{
+            color: var(--color-gold);
+            font-weight: 700;
+        }
+    }
+
+    @media (max-width:768px) {
+        grid-template-columns: 1fr;
+        
+    }
+}
+
+.spacing{ /* es para que el boton de ver menu completo quede de la parte de arriba separado de las tarjetas */
+    margin-top: 36px;
+background-color: var(--color-secondary);
+}
