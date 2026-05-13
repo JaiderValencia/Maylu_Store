@@ -1,12 +1,16 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\publicController;
 
-Route::view('/', 'index')->name('home');
-Route::view('/tienda', 'tienda')->name('tienda');
-Route::view('/tendencias', 'tendencias')->name('tendencias');
-Route::view('/producto', 'producto')->name('producto');
-Route::view('/carrito', 'carrito')->name('carrito');
-Route::view('/contacto', 'contact')->name('contacto');
-Route::view('/login', 'login')->name('login');
-Route::view('/about', 'about')->name('about');
+Route::get('/', [publicController::class, 'index'])->name('home');
+Route::get('/tienda', [publicController::class, 'tienda'])->name('tienda');
+Route::get('/tendencias', [publicController::class, 'tendencias'])->name('tendencias');
+Route::get('/producto', [publicController::class, 'producto'])->name('producto');
+Route::get('/carrito', [publicController::class, 'carrito'])->name('carrito');
+Route::get('/contacto', [publicController::class, 'contacto'])->name('contacto');
+Route::get('/login', [publicController::class, 'login'])->name('login');
+Route::get('/about', [publicController::class, 'about'])->name('about');
+
+Route::get('/panel', [adminController::class, 'panel'])->name('panel');
