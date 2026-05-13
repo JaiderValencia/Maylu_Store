@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 class Prenda extends Model
 {
@@ -35,6 +36,16 @@ class Prenda extends Model
         return [
             'precio' => 'decimal:2',
         ];
+    }
+
+    protected static function booted(): void
+    {
+        static::deleting(function (Prenda $prenda) {
+            // Pivot rows are removed via FK cascade; only the stored image is cleaned here.
+            if ($prenda->ruta_imagen) {
+                Storage::disk('public')->delete($prenda->ruta_imagen);
+            }
+        });
     }
 
     public function tallas(): BelongsToMany

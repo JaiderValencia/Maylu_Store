@@ -1,123 +1,11 @@
-const productos = [ // me crea un array con todos los productos
-  {
-    id: 1,
-    nombre: "Top Negro",
-    precio: "$45.000",
-    categoria: "blusas",
-    imagen: "top negro.avif",
-    descripcion: "Tela fresca, perfecta para ocasiones casuales o formales."
-  },
-  {
-    id: 2,
-    nombre: "Jean Wide Leg",
-    precio: "$75.000",
-    categoria: "pantalones",
-    imagen: "jean wide legs.avif",
-    descripcion: "Estilo moderno, cómodo y versátil para cualquier ocasión."
-  },
-  {
-    id: 3,
-    nombre: "Body Negro",
-    precio: "55.000",
-    categoria: "bodys",
-    imagen: "body negro.avif",
-    descripcion: "Ideal para resaltar tu figura"
-  },
-   {
-    id: 4,
-    nombre: "Corset Rojo",
-    precio: "55.000",
-    categoria: "blusas",
-    imagen: "gallery 1.avif",
-    descripcion: "Ideal para resaltar tu figura"
-  },
-   {
-    id:5 ,
-    nombre: "Camisa beisbolera",
-    precio: "65.000",
-    categoria: "blusas",
-    imagen: "gallery 2.avif",
-    descripcion: "Oversized y cómoda para un estilo casual"
-  },
-   {
-    id: 6,
-    nombre: "Body Negro manga larga",
-    precio: "60.000",
-    categoria: "bodys",
-    imagen: "gallery 3.avif",
-    descripcion: "Ideal para resaltar tu figura"
-  },
-   {
-    id: 7,
-    nombre: "Conjunto deportivo rosa",
-    precio: "110.000",
-    categoria: "deportivos",
-    imagen: "gallery 4.avif",
-    descripcion: "Ideal para actividades físicas y estilo casual"
-  },
-   {
-    id: 8,
-    nombre: "Pantalon negro",
-    precio: "80.000",
-    categoria: "pantalones",
-    imagen: "gallery 5.avif",
-    descripcion: "estilo wide leg"
-  },
-   {
-    id: 9,
-    nombre: "Pantalon con estrellas relieve",
-    precio: "100.000",
-    categoria: "pantalones",
-    imagen: "gallery 6.avif",
-    descripcion: "Ideal para actividades físicas y estilo casual"
-  },
-   {
-    id: 10,
-    nombre: "Camiseta Negra Ajustada",
-    precio: "40.000",
-    categoria: "blusas",
-    imagen: "gallery 7.avif",
-    descripcion: "Ideal para un estilo casual y comodidad"
-  },
-   {
-    id: 11,
-    nombre: "Blusa blanca",
-    precio: "55.000",
-    categoria: "blusas",
-    imagen: "gallery 8.avif",
-    descripcion: "Ideal para verano y un estilo fresco"
-  }
-
-];
-
-window.productos = productos;
-const productsBase = document.body?.dataset.productsBase || "images/productos";
-const normalizeBase = (base) => String(base || "").replace(/\/$/, "");
-const buildProductImageUrl = (filename) => `${normalizeBase(productsBase)}/${filename}`;
-
-// obtener ID de la URL
-const params = new URLSearchParams(window.location.search); //obtiene el id desde el url
-const id = params.get("id");// extrae el valor del id
-
-// buscar producto que tiene ese id
-const producto = productos.find(p => p.id == id);
-
-const nombreEl = document.getElementById("nombreProducto");
-const precioEl = document.getElementById("precioProducto");
-const descripcionEl = document.getElementById("descripcionProducto");
-const imagenEl = document.getElementById("imagenProducto");
-
-if (!producto) {
-  if (nombreEl) {
-    nombreEl.innerText = "Producto no encontrado";
-  }
-} else {
-  // mostrar datos
-  nombreEl.innerText = producto.nombre;
-  precioEl.innerText = producto.precio;
-  descripcionEl.innerText = producto.descripcion;
-  imagenEl.src = buildProductImageUrl(producto.imagen);
-}
+const productSection = document.querySelector(".producto-detalle");
+const producto = productSection
+  ? {
+      id: Number.parseInt(productSection.dataset.productId || "", 10),
+      nombre: productSection.dataset.productName || "",
+      precio: Number.parseFloat(productSection.dataset.productPrice || "0")
+    }
+  : null;
 
 //botones de tallas
 const botonesTalla = document.querySelectorAll(".tallas button"); // selecciona todos los botones de tallas
@@ -144,11 +32,6 @@ const formatter = new Intl.NumberFormat("es-CO", {
   currency: "COP",
   minimumFractionDigits: 0
 });
-
-const parsePrice = (priceText) => {
-  const digits = String(priceText || "").replace(/[^\d]/g, "");
-  return digits ? Number(digits) : 0;
-};
 
 const getSelectedSize = () => {
   const active = document.querySelector(".tallas button.active");
@@ -213,7 +96,7 @@ if (addButton) {
       return;
     }
 
-    const priceNumber = parsePrice(producto.precio);
+    const priceNumber = Number.isFinite(producto.precio) ? producto.precio : 0;
     const cartItems = readCart();
     const existingIndex = cartItems.findIndex(
       (item) => item.id === producto.id && item.talla === talla

@@ -7,9 +7,7 @@
 @section('title', 'Inicio | Maylu Store')
 
 @section('meta')
-    <meta
-    name="Description"
-    content="Tienda de ropa online, moda femenina, tendencias 2026"/>
+    <meta name="Description" content="Tienda de ropa online, moda femenina, tendencias 2026" />
 @endsection
 
 @section('styles')
@@ -20,58 +18,39 @@
     <!--seccion del hero-->
     <section class="hero-section">
         <div class="hero-overlay"> <!--fondo que se va a fucionar con el contenido-->
-            
+
             <div class="conteiner hero-content"> <!--tiene dos clases-->
                 <span class="badge">100% Colombiana</span>
                 <h1>Descubre tu look perfecto con Maylu</h1>
                 <p class="lead">Prendas diseñadas para resaltar tu estilo único. Blusas, bodys, pantalones y más.</p>
-                    <div class="hero-buttons">
-                        <a href="{{ route('tienda') }}" class="btn btn-primary">Ver Tienda</a> <!--btn-primary definido en el global-->
-                        <a href="{{ route('about') }}" class="btn btn-primary">Nuestra Historia</a>
-                    </div>
+                <div class="hero-buttons">
+                    <a href="{{ route('tienda') }}" class="btn btn-primary">Ver Tienda</a>
+                    <!--btn-primary definido en el global-->
+                    <a href="{{ route('about') }}" class="btn btn-primary">Nuestra Historia</a>
+                </div>
             </div>
         </div>
     </section>
 
-     <!--Featured Menu-->
+    <!--Featured Menu-->
     <section class="section bg-warm featured-section">
         <div class="container text-center">
             <h2 class="section-title">Prendas en tendencia</h2>
 
             <div class="feature-grid">
-                <!--1-->
-            <a href="{{ route('producto', ['id' => 1]) }}" class="product-link">
-                <div class="feature-item">
-                    <div class="img-container">
-                        <img src="{{ asset('images/productos/top negro.avif') }}" alt="Top negro">
-                    </div>
-                    <h3>Top Negro</h3>
-                    <p>Tela fresca, perfecta para ocasiones casuales o formales</p>
-                    <span>$45.000</span>
-                </div>
-            </a>    
-                <!--2-->
-            <a href="{{ route('producto', ['id' => 2]) }}" class="product-link">
-                <div class="feature-item">
-                    <div class="img-container">
-                        <img src="{{ asset('images/productos/jean wide legs.avif') }}" alt="Jean wide leg">
-                    </div>
-                    <h3>Jean Wide Leg</h3>
-                    <p>Estilo moderno, cómodo y versátil para cualquier ocasión.</p>
-                    <span>$75.000</span>
-                </div>
-            </a>
-                <!--3-->
-            <a href="{{ route('producto', ['id' => 3]) }}" class="product-link">
-                <div class="feature-item">
-                    <div class="img-container">
-                        <img src="{{ asset('images/productos/body negro.avif') }}" alt="Body negro">
-                    </div>
-                    <h3>Body Negro</h3>
-                    <p>Ideal para resaltar tu figura</p>
-                    <span>$55.000</span>
-                </div>
-            </a>    
+                @foreach ($prendas as $prenda)
+                    <a href="{{ route('producto', ['id' => $prenda->id]) }}" class="product-link">
+                        <div class="feature-item">
+                            <div class="img-container">
+                                <img src="{{ \Illuminate\Support\Facades\Storage::url($prenda->ruta_imagen) }}"
+                                    alt="{{ $prenda->nombre }}">
+                            </div>
+                            <h3>{{ $prenda->nombre }}</h3>
+                            <p>{{ \Illuminate\Support\Str::limit($prenda->descripcion, 15, '...') }}</p>
+                            <span>${{ number_format((float) $prenda->precio, 0, ',', '.') }}</span>
+                        </div>
+                    </a>
+                @endforeach                
             </div>
             <a href="{{ route('tendencias') }}" class="btn btn-gold spacing">Ver tendencias</a>
         </div>
@@ -82,18 +61,18 @@
         <div class="container">
             <div class="intro-grid"><!--va a tener dos partes una para la imagen y lo otro para contenido-->
                 <div class="intro-image">
-                    <img src="{{ asset('images/ropashop.jfif') }}" alt="Chica outfits"/>
+                    <img src="{{ asset('images/ropashop.jfif') }}" alt="Chica outfits" />
                 </div>
 
                 <div class="intro-text">
                     <h2>Moda con identidad propia</h2>
-                    <p>En Maylu creemos que cada prenda cuenta una historia. Diseñamos ropa femenina que combina tendencia, 
+                    <p>En Maylu creemos que cada prenda cuenta una historia. Diseñamos ropa femenina que combina tendencia,
                         comodidad y autenticidad para que te sientas segura en cada momento.</p>
 
                     <ul class="features-list">
                         <li>
                             <i class="fa-solid fa-moon"></i> Diseños exclusivos
-                        </li>                            
+                        </li>
                         <li>
                             <i class="fa-solid fa-moon"></i> Comodidad y estilo
                         </li>
@@ -120,9 +99,9 @@
                         <i class="fa-regular fa-star"></i>
                     </div>
                     <h3>1. Diseño</h3>
-                    <p>Cada prenda de Maylu es creada pensando en mujeres auténticas y seguras de sí mismas. 
-                    Nos inspiramos en las últimas tendencias de la moda para ofrecer diseños modernos, versátiles 
-                    y fáciles de combinar</p>
+                    <p>Cada prenda de Maylu es creada pensando en mujeres auténticas y seguras de sí mismas.
+                        Nos inspiramos en las últimas tendencias de la moda para ofrecer diseños modernos, versátiles
+                        y fáciles de combinar</p>
                 </div>
                 <!--2-->
                 <div class="process-card">
@@ -130,8 +109,8 @@
                         <i class="fa-regular fa-star"></i>
                     </div>
                     <h3>2. Calidad</h3>
-                    <p>Seleccionamos cuidadosamente cada tela para garantizar suavidad, resistencia y comodidad en cada uso. 
-                    Nuestras prendas están confeccionadas con atención al detalle</p>
+                    <p>Seleccionamos cuidadosamente cada tela para garantizar suavidad, resistencia y comodidad en cada uso.
+                        Nuestras prendas están confeccionadas con atención al detalle</p>
                 </div>
 
                 <!--3-->
@@ -140,8 +119,8 @@
                         <i class="fa-regular fa-star"></i>
                     </div>
                     <h3>3. Estilos</h3>
-                    <p>En Maylu creemos que el estilo es una forma de expresión personal. Por eso ofrecemos prendas que se 
-                    adaptan a diferentes personalidades y momentos, ayudándote a destacar tu esencia con confianza</p>
+                    <p>En Maylu creemos que el estilo es una forma de expresión personal. Por eso ofrecemos prendas que se
+                        adaptan a diferentes personalidades y momentos, ayudándote a destacar tu esencia con confianza</p>
                 </div>
             </div>
         </div>
@@ -157,25 +136,25 @@
             <div class="gallery-grid">
                 <!--1-->
                 <div class="space-y-4">
-                    <img src="{{ asset('images/productos/gallery 1.avif') }}" alt="cafe interior" class="img-small"/>
-                    <img src="{{ asset('images/productos/gallery 2.avif') }}" alt="gallery 2" class="img-large"/>
+                    <img src="{{ asset('images/productos/gallery 1.avif') }}" alt="cafe interior" class="img-small" />
+                    <img src="{{ asset('images/productos/gallery 2.avif') }}" alt="gallery 2" class="img-large" />
                 </div>
                 <!--2-->
                 <div class="space-y-4 pt-8">
-                    <img src="{{ asset('images/productos/gallery 3.avif') }}" alt="cafe interior" class="img-large"/>
-                    <img src="{{ asset('images/productos/gallery 4.avif') }}" alt="gallery 2" class="img-small"/>
+                    <img src="{{ asset('images/productos/gallery 3.avif') }}" alt="cafe interior" class="img-large" />
+                    <img src="{{ asset('images/productos/gallery 4.avif') }}" alt="gallery 2" class="img-small" />
                 </div>
                 <!--3-->
                 <div class="space-y-4">
-                    <img src="{{ asset('images/productos/gallery 5.avif') }}" alt="cafe interior" class="img-large"/>
-                    <img src="{{ asset('images/productos/gallery 6.avif') }}" alt="gallery 2" class="img-small"/>
+                    <img src="{{ asset('images/productos/gallery 5.avif') }}" alt="cafe interior" class="img-large" />
+                    <img src="{{ asset('images/productos/gallery 6.avif') }}" alt="gallery 2" class="img-small" />
                 </div>
                 <!--4-->
                 <div class="space-y-4 pt-8">
-                    <img src="{{ asset('images/productos/gallery 7.avif') }}" alt="cafe interior" class="img-large"/>
-                    <img src="{{ asset('images/productos/gallery 8.avif') }}" alt="gallery 2" class="img-small"/>
+                    <img src="{{ asset('images/productos/gallery 7.avif') }}" alt="cafe interior" class="img-large" />
+                    <img src="{{ asset('images/productos/gallery 8.avif') }}" alt="gallery 2" class="img-small" />
                 </div>
-                
+
             </div>
         </div>
     </section>

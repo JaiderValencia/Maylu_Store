@@ -15,17 +15,52 @@
     <div class="sidebar">
         <h3>Categorías</h3>
         <ul>
-            <li><a href="{{ route('tienda', ['cat' => 'todos']) }}" class="category-link" data-category="todos">Todos</a></li>
-            <li><a href="{{ route('tienda', ['cat' => 'blusas']) }}" class="category-link" data-category="blusas">Blusas</a></li>
-            <li><a href="{{ route('tienda', ['cat' => 'pantalones']) }}" class="category-link" data-category="pantalones">Pantalones</a></li>
-            <li><a href="{{ route('tienda', ['cat' => 'bodys']) }}" class="category-link" data-category="bodys">Bodys</a></li>
-            <li><a href="{{ route('tienda', ['cat' => 'deportivos']) }}" class="category-link" data-category="deportivos">Deportivos</a></li>
+            <li>
+                <a
+                    href="{{ route('tienda') }}"
+                    class="category-link @if (empty($activeCategory)) active @endif"
+                    data-category="todos"
+                >
+                    Todos
+                </a>
+            </li>
+            @foreach ($categorias as $categoria)
+                <li>
+                    <a
+                        href="{{ route('tienda', ['category' => $categoria->id]) }}"
+                        class="category-link @if ((string) $categoria->id === (string) $activeCategory) active @endif"
+                        data-category="{{ $categoria->id }}"
+                    >
+                        {{ $categoria->nombre }}
+                    </a>
+                </li>
+            @endforeach
         </ul>
     </div>
     <!--productos-->
-    <div class="products-grid" id="productsGrid"></div>
+    <div class="products-grid" id="productsGrid">
+        @forelse ($prendas as $prenda)
+            <a href="{{ route('producto', ['id' => $prenda->id]) }}" class="product-link">
+                <div class="feature-item">
+                    <div class="img-container">
+                        <img
+                            src="{{ \Illuminate\Support\Facades\Storage::url($prenda->ruta_imagen) }}"
+                            alt="{{ $prenda->nombre }}"
+                        >
+                    </div>
+                    <h3>{{ $prenda->nombre }}</h3>
+                    <p>{{ \Illuminate\Support\Str::limit($prenda->descripcion, 15, '...') }}</p>
+                    <span>${{ number_format((float) $prenda->precio, 0, ',', '.') }}</span>
+                </div>
+            </a>
+        @empty
+            <div class="admin-section">
+                <div class="alert" role="status">No hay prendas para mostrar.</div>
+            </div>
+        @endforelse
+    </div>
 @endsection
 
 @section('scripts')
-    @vite(['resources/js/product.js', 'resources/js/tienda.js', 'resources/js/partials.js'])
+    @vite(['resources/js/partials.js'])
 @endsection

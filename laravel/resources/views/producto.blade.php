@@ -12,23 +12,36 @@
 
 @section('content')
     <!-- CONTENIDO DEL PRODUCTO -->
-    <section class="producto-detalle">
+    <section
+        class="producto-detalle"
+        data-product-id="{{ $prenda->id }}"
+        data-product-name="{{ $prenda->nombre }}"
+        data-product-price="{{ $prenda->precio }}"
+    >
         <!-- IMAGEN -->
         <div class="producto-img">
-            <img id="imagenProducto" src="" alt="">
+            <img
+                id="imagenProducto"
+                src="{{ \Illuminate\Support\Facades\Storage::url($prenda->ruta_imagen) }}"
+                alt="{{ $prenda->nombre }}"
+            >
         </div>
 
         <!-- INFORMACIÓN -->
         <div class="producto-info">
-            <h2 id="nombreProducto"></h2>
-            <p id="descripcionProducto"></p>
-            <span id="precioProducto" class="precio"></span>
+            <h2 id="nombreProducto">{{ $prenda->nombre }}</h2>
+            <p id="descripcionProducto">{{ $prenda->descripcion }}</p>
+            <span id="precioProducto" class="precio">
+                ${{ number_format((float) $prenda->precio, 0, ',', '.') }}
+            </span>
 
             <h4>Tallas</h4>
             <div class="tallas">
-                <button>Talla S</button>
-                <button>Talla M</button>
-                <button>Talla L</button>
+                @forelse ($prenda->tallas as $talla)
+                    <button type="button">Talla {{ $talla->nombre }}</button>
+                @empty
+                    <span class="tallas-empty">Sin tallas disponibles</span>
+                @endforelse
             </div>
             <div class="cantidad">
                 <label for="cantidadProducto">Cantidad</label>

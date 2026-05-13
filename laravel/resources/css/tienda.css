@@ -73,26 +73,32 @@
 .products-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-left: 75px;
-    margin-right: 75px;
+    gap: clamp(20px, 3vw, 32px);
+    margin-left: clamp(16px, 6vw, 75px);
+    margin-right: clamp(16px, 6vw, 75px);
 
     .feature-item{
         background: #fff;
-        padding: 40px;
+        padding: clamp(24px, 3vw, 40px);
         text-align: center;
         box-shadow: var(--shadow-xl);
         transition: transform 0.5s ease;
         border-top: 4px solid var(--color-gold);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
 
         .img-container{
-            margin-bottom: 32px;
+            width: 100%;
+            margin-bottom: clamp(20px, 3vw, 32px);
             border-radius: 4px;
             overflow: hidden;
+            aspect-ratio: 4 / 5;
 
             img{
                 width: 100%;
-                height: 500px;
+                height: 100%;
                 object-fit: cover;
                 /* efecto para que la imagen este medio grisasea y luego vuelva al coolor original */
                 filter: grayscale(50%);
@@ -112,15 +118,20 @@
         }
 
         h3{
-            font-size: 24px;
-            margin-bottom: 16px;
+            font-size: clamp(20px, 2.2vw, 24px);
+            margin-bottom: 12px;
+            min-height: 2.6em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         p{
-            font-size: 14px;
-            margin-bottom: 24px;
+            font-size: clamp(12px, 1.6vw, 14px);
+            margin-bottom: 20px;
             line-height: 1.625;
             color: #6a7282;
+            min-height: 3.4em;
         }
 
         span{
