@@ -15,29 +15,34 @@
 @section('content')
     <!--Formulario de inicio de sesión-->
     <div class="login-container">
-        <form id="loginForm">
-
+        <form method="POST" action="{{ route('login.post') }}">
+            @csrf
             <h2>Iniciar Sesión</h2>
+
+            @if ($errors->any())
+                <div class="alert" style="background-color: #fef3f2; border-color: #fecdca; color: #b42318; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+                    {{ $errors->first() }}
+                </div>
+            @endif
 
             <!-- EMAIL -->
             <div class="form-group">
                 <label>Correo</label>
-                <input type="email" id="email" placeholder="ejemplo@mail.com" required>
+                <input type="email" name="email" value="{{ old('email') }}" placeholder="ejemplo@mail.com" required>
             </div>
 
             <!-- CONTRASEÑA -->
             <div class="form-group">
                 <label>Contraseña</label>
-                <input type="password" id="password" required>
+                <input type="password" name="password" required>
             </div>
 
             <!-- BOTÓN -->
             <button type="submit">Ingresar</button>
-            <p id="mensaje"></p>
         </form>
     </div>
 @endsection
 
 @section('scripts')
-    @vite(['resources/js/login.js', 'resources/js/partials.js'])
+    @vite(['resources/js/partials.js'])
 @endsection

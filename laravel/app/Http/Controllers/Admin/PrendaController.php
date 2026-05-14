@@ -15,15 +15,21 @@ use Illuminate\View\View;
 
 class PrendaController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $prendas = Prenda::with(['tallas' => function ($query) {
+        $search = $request->query('search');
+        
+        $query = Prenda::with(['tallas' => function ($query) {
             $query->orderBy('nombre');
-        }])
-            ->orderByDesc('id')
-            ->get();
+        }])->orderByDesc('id');
 
-        return view('admin.prendas.index', compact('prendas'));
+        if ($search) {
+            $query->where('nombre', 'like', '%' . $search . '%');
+        }
+
+        $prendas = $query->get();
+
+        return view('admin.prendas.index', compact('prendas', 'search'));
     }
 
     public function create(): View

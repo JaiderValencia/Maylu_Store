@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @php
-    $navActive = '';
+    $navActive = 'prendas';
 @endphp
 
 @section('title', 'Admin Prendas | Maylu Store')
@@ -19,6 +19,14 @@
             </div>
             <a class="btn btn-primary" href="{{ route('admin.prendas.create') }}">Crear prenda</a>
         </div>
+
+        <form method="GET" action="{{ route('admin.prendas.index') }}" style="margin-bottom: 20px; display: flex; gap: 10px;">
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar por nombre..." style="padding: 10px; border: 1px solid var(--border-color); border-radius: 4px; flex-grow: 1; max-width: 300px;">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            @if(request('search'))
+                <a href="{{ route('admin.prendas.index') }}" class="btn btn-outline">Limpiar</a>
+            @endif
+        </form>
 
         @if (session('status'))
             <div class="alert success" role="status">

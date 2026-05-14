@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @php
-    $navActive = '';
+    $navActive = 'prendas';
 @endphp
 
 @section('title', 'Editar Prenda | Maylu Store')

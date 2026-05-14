@@ -5,6 +5,6 @@
         <li><a href="{{ route('tendencias') }}" @if (($active ?? '') === 'tendencias') class="active" @endif>Tendencias</a></li>
         <li><a href="{{ route('contacto') }}" @if (($active ?? '') === 'contacto') class="active" @endif>Contacto</a></li>
         <li><a href="{{ route('carrito') }}" @if (($active ?? '') === 'carrito') class="active" @endif>Carrito</a></li>
-        <li><a href="{{ route('login') }}" @if (($active ?? '') === 'login') class="active" @endif>Iniciar sesion</a></li>
+        <li><a href="{{ route('login') }}" @if (($active ?? '') === 'login') class="active" @endif>{{ Auth::check() ? 'Panel de administración' : 'Iniciar sesión' }}</a></li>
     </ul>
 </nav>
