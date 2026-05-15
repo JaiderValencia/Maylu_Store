@@ -68,6 +68,12 @@
                     </div>
 
                     <div class="field-group">
+                        <label for="documentNumber">Numero de documento</label>
+                        <input id="documentNumber" type="text" autocomplete="document-number" required>
+                        <span class="field-error" data-error-for="documentNumber"></span>
+                    </div>
+
+                    <div class="field-group">
                         <label for="barrio">Barrio</label>
                         <input id="barrio" type="text" autocomplete="address-level2" required>
                         <span class="field-error" data-error-for="barrio"></span>
