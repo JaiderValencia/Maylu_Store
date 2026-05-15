@@ -35,7 +35,9 @@ class publicController extends Controller
 
     public function tendencias()
     {
-        return view('tendencias');
+        $prendas = Prenda::orderByDesc('id')->take(3)->get();
+
+        return view('tendencias', compact('prendas'));
     }
 
     public function producto(Request $request)

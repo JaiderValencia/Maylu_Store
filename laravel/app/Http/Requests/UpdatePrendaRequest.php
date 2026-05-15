@@ -26,7 +26,7 @@ class UpdatePrendaRequest extends FormRequest
             'nombre' => 'required|string|min:3|max:120',
             'descripcion' => 'required|string|min:10|max:1000',
             'precio' => 'required|numeric|min:0.01',
-            'imagen' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'imagen' => 'nullable|image|mimes:jpg,jpeg,png,webp,avif|max:3048',
             'categoria_id' => 'required|integer|exists:categorias,id',
             'tallas' => 'required|array|min:1',
             'tallas.*' => 'integer|exists:tallas,id',

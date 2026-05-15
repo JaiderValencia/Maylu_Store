@@ -19,39 +19,19 @@
     </div>
 
     <div class="products-grid">
-        <!--1-->
-        <a href="{{ route('producto', ['id' => 1]) }}" class="product-link">
-            <div class="feature-item">
-                <div class="img-container">
-                    <img src="{{ asset('images/productos/top negro.avif') }}" alt="Top negro">
+        @foreach ($prendas as $prenda)
+            <a href="{{ route('producto', ['id' => $prenda->id]) }}" class="product-link">
+                <div class="feature-item">
+                    <div class="img-container">
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($prenda->ruta_imagen) }}"
+                            alt="{{ $prenda->nombre }}">
+                    </div>
+                    <h3>{{ $prenda->nombre }}</h3>
+                    <p>{{ \Illuminate\Support\Str::limit($prenda->descripcion, 15, '...') }}</p>
+                    <span>${{ number_format((float) $prenda->precio, 0, ',', '.') }}</span>
                 </div>
-                <h3>Top Negro</h3>
-                <p>Tela fresca, perfecta para ocasiones casuales o formales</p>
-                <span>$45.000</span>
-            </div>
-        </a>    
-        <!--2-->
-        <a href="{{ route('producto', ['id' => 2]) }}" class="product-link">
-            <div class="feature-item">
-                <div class="img-container">
-                    <img src="{{ asset('images/productos/jean wide legs.avif') }}" alt="Jean wide leg">
-                </div>
-                <h3>Jean Wide Leg</h3>
-                <p>Estilo moderno, cómodo y versátil para cualquier ocasión.</p>
-                <span>$75.000</span>
-            </div>
-        </a>
-        <!--3-->
-        <a href="{{ route('producto', ['id' => 3]) }}" class="product-link">
-            <div class="feature-item">
-                <div class="img-container">
-                    <img src="{{ asset('images/productos/body negro.avif') }}" alt="Body negro">
-                </div>
-                <h3>Body Negro</h3>
-                <p>Ideal para resaltar tu figura</p>
-                <span>$55.000</span>
-            </div>
-        </a>
+            </a>
+        @endforeach
     </div>
 @endsection
 

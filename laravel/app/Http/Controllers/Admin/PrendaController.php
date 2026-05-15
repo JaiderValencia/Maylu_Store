@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePrendaRequest;
 use App\Http\Requests\UpdatePrendaRequest;
@@ -18,10 +19,12 @@ class PrendaController extends Controller
     public function index(Request $request): View
     {
         $search = $request->query('search');
-        
-        $query = Prenda::with(['tallas' => function ($query) {
-            $query->orderBy('nombre');
-        }])->orderByDesc('id');
+
+        $query = Prenda::with([
+            'tallas' => function ($query) {
+                $query->orderBy('nombre');
+            }
+        ])->orderByDesc('id');
 
         if ($search) {
             $query->where('nombre', 'like', '%' . $search . '%');
